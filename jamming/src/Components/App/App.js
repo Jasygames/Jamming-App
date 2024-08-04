@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import styles from "./App.css";
+import styles from "./App.module.css";
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
 
 const App = () => {
   const [searchResults, setSearchResults] = useState ([
@@ -16,6 +17,29 @@ const App = () => {
       album: "example album 2"
     }]
   );
+const [playlistName, setPlaylistName] = useState("Example Playlist Name");
+const [playlistTracks, setPlaylistName] = useState([
+
+  {
+    name: "Example Playlist Name 1",
+    artist: "Example Playlist Artist 1",
+    album: "Example Playlist Album 1",
+    id: 11,
+  },
+  {
+    name: "Example Playlist Name 2",
+    artist: "Example Playlist Artist 2",
+    album: "Example Playlist Album 2",
+    id: 22,
+  },
+  {
+    name: "Example Playlist Name 3",
+    artist: "Example Playlist Artist 3",
+    album: "Example Playlist Album 3",
+    id: 33,
+  },
+
+]);
 
 
   return (
@@ -24,13 +48,10 @@ const App = () => {
 
     </h1>
       <div className={styles.App}>
-        {/* <!--Add a SearchBar compnent --> */}
 
         <div className={styles["App-playlist"]}>
-        {/* <!--Add a SearchResults compnent --> */}
           <SearchResults UserSearchResults={searchResults}/>
-        {/* <!--Add a Playlist compnent --> */}
-
+          <Playlist playlistName={playlistName} playlistTrack={playlistTracks}/>
         </div>
       </div>
   </div>
